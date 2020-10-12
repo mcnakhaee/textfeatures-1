@@ -30,5 +30,7 @@ tweet_features <- function(text) {
   o$n_puncts <- n_puncts(text)
   o$n_capsp <- (o$n_caps + 1L) / (o$n_chars + 1L)
   o$n_charsperword <- (o$n_chars + 1L) / (o$n_words + 1L)
+  o$n_misspelled <- n_misspelled(text)
+  o$n_emojis <- n_emojis(text)
   o
 }
