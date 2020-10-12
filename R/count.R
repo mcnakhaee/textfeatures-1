@@ -145,6 +145,23 @@ n_lowers <- function(x) {
   x
 }
 
+n_misspelled <- function(x){
+  na <- is.na(x)
+  if (all(na)) return(0)
+  x <- purrr::map_int(x, ~ purrr::pluck(dim(spelling::spell_check_text(.x)),1))
+  x[na] <- NA_integer_
+  x
+}
+
+n_emojis <- function(x){
+  na <- is.na(x)
+  if (all(na)) return(0)
+  m <- gregexpr("[^\x01-\x7F]",x)
+  x <- purrr::map_dbl(m, ~ length(.x)/2)
+  x[na] <- NA_integer_
+  x
+}
+
 n_urls <- function(x) {
   na <- is.na(x)
   if (all(na)) return(0)
@@ -222,6 +239,7 @@ to_be <- function(x) {
   purrr::map_int(x, ~ sum(fp %in% .x, na.rm = TRUE))
 }
 
+
 prepositions <- function(x) {
   fp <- c("about", "below", "excepting", "off", "toward", "above", "beneath",
     "on", "under", "across", "from", "onto", "underneath", "after", "between",
@@ -271,6 +289,8 @@ prepositions <- function(x) {
 #' \item{\code{n_extraspaces}}{Number of times more then 1 consecutive space have been used.}
 #' \item{\code{n_caps}}{Number of upper case characters.}
 #' \item{\code{n_lowers}}{Number of lower case characters.}
+#' \item{\code{n_misspelled}}{Number of misspelled words.}
+#' \item{\code{n_emojis}}{Number of emojis.}
 #' \item{\code{n_urls}}{Number of urls.}
 #' \item{\code{n_uq_urls}}{Number of unique urls.}
 #' \item{\code{n_nonasciis}}{Number of non ascii characters.}
@@ -301,6 +321,8 @@ count_functions <- list(
   n_extraspaces = n_extraspaces,
   n_caps = n_caps,
   n_lowers = n_lowers,
+  n_misspelled = n_misspelled,
+  n_emojis = n_emojis,
   n_urls = n_urls,
   n_uq_urls = n_uq_urls,
   n_nonasciis = n_nonasciis,
