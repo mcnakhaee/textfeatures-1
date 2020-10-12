@@ -4,7 +4,8 @@
 \name{count_functions}
 \alias{count_functions}
 \title{List of all feature counting functions}
-\format{Named list of all ferature counting functions
+\format{
+Named list of all ferature counting functions
 \describe{
 \item{\code{n_words}}{Number of words.}
 \item{\code{n_uq_words}}{Number of unique words.}
@@ -21,6 +22,8 @@
 \item{\code{n_extraspaces}}{Number of times more then 1 consecutive space have been used.}
 \item{\code{n_caps}}{Number of upper case characters.}
 \item{\code{n_lowers}}{Number of lower case characters.}
+\item{\code{n_misspelled}}{Number of misspelled words.}
+\item{\code{n_emojis}}{Number of emojis.}
 \item{\code{n_urls}}{Number of urls.}
 \item{\code{n_uq_urls}}{Number of unique urls.}
 \item{\code{n_nonasciis}}{Number of non ascii characters.}
@@ -33,7 +36,8 @@
 \item{\code{third_person}}{Number of "third person" words.}
 \item{\code{to_be}}{Number of "to be" words.}
 \item{\code{prepositions}}{Number of preposition words.}
-}}
+}
+}
 \usage{
 count_functions
 }

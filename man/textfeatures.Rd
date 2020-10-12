@@ -4,8 +4,14 @@
 \alias{textfeatures}
 \title{textfeatures}
 \usage{
-textfeatures(text, sentiment = TRUE, word_dims = NULL,
-  normalize = TRUE, newdata = NULL, verbose = TRUE)
+textfeatures(
+  text,
+  sentiment = TRUE,
+  word_dims = NULL,
+  normalize = TRUE,
+  newdata = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{text}{Input data. Should be character vector or data frame with character
@@ -42,13 +48,13 @@ Extracts features from text vector.
 trump_tweets <- c(
   "#FraudNewsCNN #FNN https://t.co/WYUnHjjUjg",
   "TODAY WE MAKE AMERICA GREAT AGAIN!",
-  paste("Why would Kim Jong-un insult me by calling me \\"old,\\" when I would",
-    "NEVER call him \\"short and fat?\\" Oh well, I try so hard to be his",
+  paste("Why would Kim Jong-un insult me by calling me \"old,\" when I would",
+    "NEVER call him \"short and fat?\" Oh well, I try so hard to be his",
     "friend - and maybe someday that will happen!"),
   paste("Such a beautiful and important evening! The forgotten man and woman",
     "will never be forgotten again. We will all come together as never before"),
-  paste("North Korean Leader Kim Jong Un just stated that the \\"Nuclear",
-    "Button is on his desk at all times.\\" Will someone from his depleted and",
+  paste("North Korean Leader Kim Jong Un just stated that the \"Nuclear",
+    "Button is on his desk at all times.\" Will someone from his depleted and",
     "food starved regime please inform him that I too have a Nuclear Button,",
     "but it is a much bigger &amp; more powerful one than his, and my Button",
     "works!")
@@ -60,9 +66,9 @@ textfeatures(trump_tweets)
 ## data frame with a character vector named "text"
 df <- data.frame(
   id = c(1, 2, 3),
-  text = c("this is A!\\t sEntence https://github.com about #rstats @github",
+  text = c("this is A!\t sEntence https://github.com about #rstats @github",
     "and another sentence here",
-    "The following list:\\n- one\\n- two\\n- three\\nOkay!?!"),
+    "The following list:\n- one\n- two\n- three\nOkay!?!"),
   stringsAsFactors = FALSE
 )
 
